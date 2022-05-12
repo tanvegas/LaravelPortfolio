@@ -1,59 +1,57 @@
 @extends('layouts.app')
-<x-header name="Portfolio Header" :experiences="$experiences"/>
+@section('title', 'Tristan Vegas | Web Developer')
+@section('content')
 
-<div data-bs-spy="scroll" data-bs-target="#navbar-schead" data-bs-offset="0" class="scrollspy-headdata" tabindex="0">
-    <main class="flex-shrink-0">
-        <header class="bg-dark py-5">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center justify-content-center">
-                    <div class="col-lg-8 col-xl-7 col-xxl-6">
-                        <div class="my-5 text-center text-xl-start">
-                            <h6 class="lead fw-normal text-white-50 mb-4">Hello, I'm</h6>
-                            <h1 class="display-5 fw-bolder text-white mb-2">Tristan Vegas</h1>
-                            <p class="lead fw-normal text-white-50 mb-4">I'm a web and mobile applications specializing. If you are a business seeking for a web presence or an employer looking to hire, you can get in touch with me here.</p>
+<section class="bg-dark py-5">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center">
+            <div class="col-lg-8 col-xl-7 col-xxl-6">
+                <div class="my-5 text-center text-xl-start">
+                    <h6 class="lead fw-normal text-white-50 mb-4">Hello, I'm</h6>
+                    <h1 class="display-5 fw-bolder text-white mb-2">Tristan Vegas</h1>
+                    <p class="lead fw-normal text-white-50 mb-4">I'm a web and mobile applications specializing. If you are a business seeking for a web presence or an employer looking to hire, you can get in touch with me here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<main class="flex-shrink-0">
+    <div class="scrollspy-headdata" data-bs-spy="scroll" data-bs-target="#navbar-schead" data-bs-offset="0" tabindex="0">
+        {{-- about me --}}
+        <article class="container py-5" id="aboutme">
+            <div class="container px-5 my-5">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title">About Me</h3>
+                                    <p>Hello! My name is Tristan. My interest in web development started back 2016 when I decided to enroll BS Information Technology. I never thought web dev will caught my eyes.
+                                        I Think friendster give also idea to me because friendster can make design on your profile wall.</p>
+
+                                    <p>Now, I learn more about Web development. Also Mobile development is cool, In my parttime freelance I'm start creating game till now. but hope i can finish what i started.</p>
+
+                                    <p>Here are a the technologies I've been woking with.</p>
+                                    <ul class="skills-list">
+                                        <li>Android Studio</li>
+                                        <li>Node.js</li>
+                                        <li>Express</li>
+                                        <li>Socket.io</li>
+                                        <li>postgresql</li>
+                                    </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 p-3">
+                            <!-- https://dummyimage.com/200x300/ced4da/6c757d -->
+                            <img class="rounded mx-auto d-block my-4 mb-4 img-fluid" src="./static/media/profile.png" alt="..." />
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </article>
 
-        <section id="scrollspyHeading1" class="container py-5">
-                <div class="container px-5 my-5">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-12 col-xl-9">
-                            <div class="card mb-3">
-                                <div class="row g-0">
-                                  <div class="col-md-8">
-                                    <div class="card-body">
-                                      <h3 class="card-title">About Me</h3>
-                                      <p>Hello! My name is Tristan. My interest in web development started back 2016 when I decided to enroll BS Information Technology. I never thought web dev will caught my eyes.
-                                        I Think friendster give also idea to me because friendster can make design on your profile wall.</p>
-
-                                        <p>Now, I learn more about Web development. Also Mobile development is cool, In my parttime freelance I'm start creating game till now. but hope i can finish what i started.</p>
-
-                                        <p>Here are a the technologies I've been woking with.</p>
-                                        <ul class="skills-list">
-                                            <li>Android Studio</li>
-                                            <li>Node.js</li>
-                                            <li>Express</li>
-                                            <li>Socket.io</li>
-                                            <li>postgresql</li>
-                                        </ul>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-4 p-3">
-                                    <!-- https://dummyimage.com/200x300/ced4da/6c757d -->
-                                    <img class="rounded mx-auto d-block my-4 mb-4 img-fluid" src="./static/media/profile.png" alt="..." />
-                                  </div>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                </div>
-
-        </section>
-
-        <section id="scrollspyHeading2" class="py-5" id="features">
+        {{-- experience --}}
+        <article class="container py-t" id="experience">
             <div class="container px-5 my-5">
                 <div class="row gx-5">
                     <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">The Adventure of my carrier!</h2></div>
@@ -97,16 +95,14 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </article>
 
-        <section id="scrollspyHeading3" class="py-5">
-            <div class="container px-5 my-5">
+        <article class="py-5" id="skillsandtools">
+            <div class="contanier px-5 my-5">
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6">
                         <div class="text-center">
                             <h2 class="fw-bolder">Skills and Tools</h2>
-                            <br>
-                            <br>
                         </div>
                     </div>
                 </div>
@@ -304,11 +300,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-        </section>
-    </main>
-</div>
+        </article>
+    </div>
+</main>
 
 <div class="py-5 bg-light">
     <div class="container px-5 my-5">
@@ -329,7 +324,5 @@
     </div>
 </div>
 
-{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/scripts.js"></script> --}}
-
 <x-footer/>
+@endsection

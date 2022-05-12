@@ -15,11 +15,16 @@ use App\Http\Controllers\ClientController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', [ExperienceController::class, 'index'])->name('experience.index');
+// Route::get('/', [ExperienceController::class, 'index'])->name('experience.index');
+
+Route::get('/contact', function(){
+    return view('welcome');
+});
+
 
 
 Route::get('/posts', [ClientController::class, 'getAllPost'])->name('posts.getallpost');
