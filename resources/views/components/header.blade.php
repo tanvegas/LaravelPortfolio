@@ -18,4 +18,11 @@
             </ul>
         </div>
     </div>
+
+    <h3>Experience</h3>
+    <ul>
+        @foreach ($experiences as $experience)
+            <li>{{$experience}}</li>
+        @endforeach
+    </ul>
 </nav>

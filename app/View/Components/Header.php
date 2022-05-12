@@ -7,15 +7,17 @@ use Illuminate\View\Component;
 class Header extends Component
 {
     public $name;
+    public $experiences;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($name, $experiences)
     {
         //
         $this->name = $name;
+        $this->experiences = $experiences;
     }
 
     /**

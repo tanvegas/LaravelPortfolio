@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<x-header name="Portfolio Header"/>
+<x-header name="Portfolio Header" :experiences="$experiences"/>
 
 <div data-bs-spy="scroll" data-bs-target="#navbar-schead" data-bs-offset="0" class="scrollspy-headdata" tabindex="0">
     <main class="flex-shrink-0">
