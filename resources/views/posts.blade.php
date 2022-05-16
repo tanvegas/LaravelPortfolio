@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>DB CRUD Operation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Posts Page</h1>
-    <h3>All Posts</h3>
-    
     <section>
         <div class="container">
             <div class="row">
@@ -26,6 +23,7 @@
                                     <tr>
                                         <th>Post Title</th>
                                         <th>Post Body</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -33,6 +31,7 @@
                                     <tr>
                                         <td>{{$post->title}}</td>
                                         <td>{{$post->body}}</td>
+                                        <td><a href="/posts/{{$post->id}}" class="btn btn-success">View</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
