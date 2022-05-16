@@ -23,4 +23,6 @@ class PostController extends Controller
         ]);
         return back()->with('post_created', 'Post has been create succesfully!');
     }
+
+    
 }
