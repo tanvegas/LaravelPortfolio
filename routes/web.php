@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,17 @@ Route::get('/contact', function(){
     return view('welcome');
 });
 
+// Route::get('/login', function(){
+//     return view('login');
+// });
 
+Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('checkuser');
+Route::post('/login', [LoginController::class, 'loginSubmit'])->name('login.submit');
+
+Route::get('/users', [UserController::class, 'index'])->name('user.index');
+
+Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
+Route::get('/experience/{name}', [ExperienceController::class, 'index1'])->name('experience.index1');
 
 Route::get('/posts', [ClientController::class, 'getAllPost'])->name('posts.getallpost');
 Route::get('/posts/{id}', [ClientController::class, 'getPostById'])->name('posts.getpostbyid');
