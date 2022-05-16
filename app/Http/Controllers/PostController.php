@@ -33,4 +33,9 @@ class PostController extends Controller
         DB::table('posts')->where('id', $id)->delete();
         return back()->with('post_deleted', 'Post has been delete successfully!');
     }
+
+    public function editPost($id){
+        $post = DB::table('posts')->where('id', $id)->first();
+        return view('edit-post', compact('post'));
+    }
 }
