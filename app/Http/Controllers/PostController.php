@@ -38,4 +38,12 @@ class PostController extends Controller
         $post = DB::table('posts')->where('id', $id)->first();
         return view('edit-post', compact('post'));
     }
+
+    public function updatePost(Request $request){
+        DB::table('posts')->where('id', $request->id)->update([
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+        return back()->with('post_updated', 'Post has benn update successfully!');
+    }
 }

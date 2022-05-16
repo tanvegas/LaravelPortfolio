@@ -18,8 +18,14 @@
                             Edit Post Details
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="">
+                            @if (Session::has('post_updated'))
+                                <div class="alert alert-success" role="alert">
+                                    {{Session::get('post_updated')}}
+                                </div>
+                            @endif
+                            <form method="POST" action="{{route('post.updatepost')}}">
                                 @csrf
+                                <input type="hidden" name="id" value="{{$post->id}}"/>
                                 <div class="form-group">
                                     <label for="title">Post Title</label>
                                     <input type="text" name="title" class="form-control" value="{{$post->title}}" placeholder="Enter Post Title"/>
@@ -28,8 +34,8 @@
                                     <label for="body">Post Description</label>
                                     <textarea name="body" id="" cols="10" rows="3" class="form-control">{{$post->body}}</textarea>
                                 </div>
+                                <input type="submit" class="btn btn-success" value="Update"/>
                             </form>
-                            <input type="submit" class="btn btn-success" value="Update"/>
                         </div>
                     </div>
                 </div>
