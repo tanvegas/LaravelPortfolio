@@ -61,4 +61,11 @@ class PostController extends Controller
             ->get();
             return $result;
     }
+
+    public function rightJoinClause(){
+        $result = DB::table('users')
+            ->rightJoin('posts', 'posts.user_id', '=', 'users.id')
+            ->get();
+            return $result;
+    }
 }

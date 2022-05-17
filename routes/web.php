@@ -49,7 +49,7 @@ Route::get('/edit-post/{id}', [PostController::class, 'editPost'])->name('post.e
 Route::post('/update-post', [PostController::class, 'updatePost'])->name('post.updatepost');
 Route::get('/inner-join', [PostController::class, 'innerJoinClause'])->name('post.innerjoin');
 Route::get('/left-join', [PostController::class, 'leftJoinClause'])->name('post.leftjoin');
-
+Route::get('/right-join', [PostController::class, 'rightJoinClause'])->name('post.rightjoin');
 
 
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
