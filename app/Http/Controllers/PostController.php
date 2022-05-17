@@ -54,4 +54,11 @@ class PostController extends Controller
             ->get();
             return $request;
     }
+    
+    public function leftJoinClause(){
+        $result = DB::table('users')
+            ->leftJoin('posts','users.id','=','posts.user_id')
+            ->get();
+            return $result;
+    }
 }
