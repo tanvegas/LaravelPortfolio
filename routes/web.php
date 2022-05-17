@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PaginationController;
+use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,17 @@ Route::get('/test', function(){
 
 Route::get('/users', [PaginationController::class, 'allUsers']);
 // Route::get('/users', [UserController::class, 'index'])->name('user.index');
+
+Route::get('/upload', [UploadController::class, 'uploadForm']);
+Route::post('/upload', [UploadController::class, 'uploadFile'])->name('upload.uploadfile');
+
+Route::get('/dashboard', function(){
+    return view('dashboard.app');
+});
+
+Route::get('/dashboard/profile', function(){
+    return view('dashboard.profile');
+});
 
 Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
 Route::get('/experience/{name}', [ExperienceController::class, 'index1'])->name('experience.index1');
