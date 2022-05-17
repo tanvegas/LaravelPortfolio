@@ -72,6 +72,10 @@ Route::get('/dashboard/profile', function(){
     return view('dashboard.profile');
 });
 
+Route::get('/dashboard/experience', function(){
+    return view('dashboard.experience');
+});
+
 Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
 Route::get('/experience/{name}', [ExperienceController::class, 'index1'])->name('experience.index1');
 
