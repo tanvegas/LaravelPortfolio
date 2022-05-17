@@ -45,15 +45,15 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/dashboard/skillandtools">
+                  <a class="nav-link" href="/dashboard/skills-tools">
                     <span data-feather="users"></span>
                     Skills & Tools
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="/dashboard/contact">
                     <span data-feather="bar-chart-2"></span>
-                    Contact Us
+                    Contact
                   </a>
                 </li>
                 <li class="nav-item">
