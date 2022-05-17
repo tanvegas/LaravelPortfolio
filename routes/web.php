@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PaginationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +57,8 @@ Route::get('/test', function(){
     return view('test');
 });
 
-Route::get('/users', [UserController::class, 'index'])->name('user.index');
+Route::get('/users', [PaginationController::class, 'allUsers']);
+// Route::get('/users', [UserController::class, 'index'])->name('user.index');
 
 Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
 Route::get('/experience/{name}', [ExperienceController::class, 'index1'])->name('experience.index1');
