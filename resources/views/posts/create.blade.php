@@ -23,7 +23,7 @@
                                     {{Session::get('post_created')}}
                                 </div>
                             @endif
-                            <form method="POST" action="{{route('post.addsubmit')}}">
+                            <form method="POST" action="{{route('posts.store')}}">
                                 @csrf
                                 <div class="form-group">
                                     <label for="title">Post Title</label>
