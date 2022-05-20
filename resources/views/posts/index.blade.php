@@ -38,8 +38,16 @@
                                         <td>{{$post->body}}</td>
                                         <td>
                                             <a href="/posts/{{$post->id}}" class="btn btn-success">View</a>
-                                            <a href="/edit-post/{{$post->id}}" class="btn btn-info">Edit</a>
-                                            <a href="/delete-post/{{$post->id}}" class="btn btn-danger">Delete</a>
+                                            <a href="/posts/{{$post->id}}/edit" class="btn btn-info">Edit</a>
+                                            {{-- <a href="/delete-post/{{$post->id}}" class="btn btn-danger">Delete</a> --}}
+                                            {{-- <a href="/posts/{{$post->id}}" class="btn btn-danger">Delete</a> --}}
+                                            <form action="{{ route('posts.destroy', ['id' => $post->id]) }}" method="POST">
+                                                @csrf
+                                            
+                                                @method('DELETE')
+                                            
+                                                <button type="submit" class="btn btn-danger btn-block">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach

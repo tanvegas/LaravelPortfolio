@@ -23,8 +23,9 @@
                                     {{Session::get('post_updated')}}
                                 </div>
                             @endif
-                            <form method="POST" action="{{route('post.updatepost')}}">
+                            <form method="POST" action="{{route('posts.update', $post->id)}}">
                                 @csrf
+                                @method('PUT')
                                 <input type="hidden" name="id" value="{{$post->id}}"/>
                                 <div class="form-group">
                                     <label for="title">Post Title</label>

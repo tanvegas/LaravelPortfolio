@@ -31,28 +31,14 @@ Route::get('/contact', function(){
     return view('welcome');
 });
 
-// Route::get('/login', function(){
-//     return view('login');
-// });
+// Route::get('/session/get', [SessionController::class, 'getSessionData'])->name('session.get');
+// Route::get('/session/set', [SessionController::class, 'storeSessionData'])->name('session.store');
+// Route::get('/session/remove', [SessionController::class, 'deleteSessionData'])->name('session.delete');
 
-Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('checkuser');
-Route::post('/login', [LoginController::class, 'loginSubmit'])->name('login.submit');
-
-Route::get('/session/get', [SessionController::class, 'getSessionData'])->name('session.get');
-Route::get('/session/set', [SessionController::class, 'storeSessionData'])->name('session.store');
-Route::get('/session/remove', [SessionController::class, 'deleteSessionData'])->name('session.delete');
-
-Route::get('/posts', [PostController::class, 'getAllPost'])->name('post.getallpost');
-Route::get('/add-post', [PostController::class, 'addPost'])->name('post.addpost');
-Route::post('/add-post', [PostController::class, 'addPostSubmit'])->name('post.addsubmit');
-Route::get('/posts/{id}', [PostController::class, 'getPostById'])->name('post.getpostbyid');
-Route::get('/delete-post/{id}', [PostController::class, 'deletePost'])->name('post.deletepost');
-Route::get('/edit-post/{id}', [PostController::class, 'editPost'])->name('post.editpost');
-Route::post('/update-post', [PostController::class, 'updatePost'])->name('post.updatepost');
-Route::get('/inner-join', [PostController::class, 'innerJoinClause'])->name('post.innerjoin');
-Route::get('/left-join', [PostController::class, 'leftJoinClause'])->name('post.leftjoin');
-Route::get('/right-join', [PostController::class, 'rightJoinClause'])->name('post.rightjoin');
-Route::get('/all-posts', [PostController::class, 'getAllPostsUsingModel'])->name('post.getallpostusingmodel');
+// Route::get('/inner-join', [PostController::class, 'innerJoinClause'])->name('post.innerjoin');
+// Route::get('/left-join', [PostController::class, 'leftJoinClause'])->name('post.leftjoin');
+// Route::get('/right-join', [PostController::class, 'rightJoinClause'])->name('post.rightjoin');
+// Route::get('/all-posts', [PostController::class, 'getAllPostsUsingModel'])->name('post.getallpostusingmodel');
 
 Route::get('/test', function(){
     return view('test');
@@ -64,31 +50,63 @@ Route::get('/users', [PaginationController::class, 'allUsers']);
 Route::get('/upload', [UploadController::class, 'uploadForm']);
 Route::post('/upload', [UploadController::class, 'uploadFile'])->name('upload.uploadfile');
 
-Route::get('/dashboard', function(){
-    return view('dashboard.app');
+// Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
+// Route::get('/experience/{name}', [ExperienceController::class, 'index1'])->name('experience.index1');
+
+// Route::get('/posts', function(){
+//     return view('index');
+// });
+
+// Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+// Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+// Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+// Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+// Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+
+// prefix for url soft
+// namespace for controller
+
+Route::resource('posts', PostController::class);
+
+Route::group([
+    // 'middleware' => 'auth',
+    'prefix' => 'posts', 
+    // 'namespace' => 'Post'
+    ], function(){
+        Route::put('/{id}', [PostController::class, 'update'])->name('posts.update');;
+        Route::get('/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 });
 
-Route::get('/dashboard/profile', function(){
-    return view('dashboard.profile');
+Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('checkuser');
+Route::post('/login', [LoginController::class, 'loginSubmit'])->name('login.submit');
+
+// Route::group([],function() {
+    
+// });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group([
+    'prefix' => 'dashboard'
+    ], function(){
+        Route::get('/', function(){
+            return view('dashboard.app');
+        });
+        
+        Route::get('/profile', function(){
+            return view('dashboard.profile');
+        });
+        
+        Route::get('/experience', function(){
+            return view('dashboard.experience');
+        });
+        
+        Route::get('/skills-tools', function(){
+            return view('dashboard.skills-tools');
+        });
+        
+        Route::get('/contact', function(){
+            return view('dashboard.contact');
+        });
 });
-
-Route::get('/dashboard/experience', function(){
-    return view('dashboard.experience');
-});
-
-Route::get('/dashboard/skills-tools', function(){
-    return view('dashboard.skills-tools');
-});
-
-Route::get('/dashboard/contact', function(){
-    return view('dashboard.contact');
-});
-
-Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
-Route::get('/experience/{name}', [ExperienceController::class, 'index1'])->name('experience.index1');
-
-// Route::get('/posts', [ClientController::class, 'getAllPost'])->name('posts.getallpost');
-// Route::get('/posts/{id}', [ClientController::class, 'getPostById'])->name('posts.getpostbyid');
-// Route::get('/add-post', [ClientController::class, 'addPost'])->name('posts.addpost');
-// Route::get('/update-post', [ClientController::class, 'updatePost'])->name('posts.updatepost');
-// Route::get('/delete-post/{id}', [ClientController::class, 'deletePost'])->name('posts.deletepost');
