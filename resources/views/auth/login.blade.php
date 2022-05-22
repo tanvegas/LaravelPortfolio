@@ -1,4 +1,4 @@
-@extends('dashboard-layouts.app')
+@extends('dashboard-layouts.login')
 
 @section('content')
 <div class="container">
@@ -11,6 +11,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
+                        {{-- email --}}
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
@@ -25,6 +26,7 @@
                             </div>
                         </div>
 
+                        {{-- password --}}
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
@@ -39,6 +41,7 @@
                             </div>
                         </div>
 
+                        {{-- remember me --}}
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
@@ -51,6 +54,7 @@
                             </div>
                         </div>
 
+                        {{-- login and forgot password --}}
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

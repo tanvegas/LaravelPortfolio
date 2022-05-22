@@ -50,50 +50,24 @@ Route::get('/users', [PaginationController::class, 'allUsers']);
 Route::get('/upload', [UploadController::class, 'uploadForm']);
 Route::post('/upload', [UploadController::class, 'uploadFile'])->name('upload.uploadfile');
 
-// Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
-// Route::get('/experience/{name}', [ExperienceController::class, 'index1'])->name('experience.index1');
-
-// Route::get('/posts', function(){
-//     return view('index');
-// });
-
-// Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-// Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
-// Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
-// Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
-// Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
-
 // prefix for url soft
 // namespace for controller
+Auth::routes();
 
 Route::resource('posts', PostController::class);
-
 Route::group([
-    // 'middleware' => 'auth',
     'prefix' => 'posts', 
-    // 'namespace' => 'Post'
     ], function(){
         Route::put('/{id}', [PostController::class, 'update'])->name('posts.update');;
         Route::get('/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 });
 
-Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('checkuser');
-Route::post('/login', [LoginController::class, 'loginSubmit'])->name('login.submit');
-
-// Route::group([],function() {
-    
-// });
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard-master');
 
 Route::group([
-    'prefix' => 'dashboard'
+    'middleware' => 'auth',
+    'prefix' => 'dashboard',
     ], function(){
-        Route::get('/', function(){
-            return view('dashboard.app');
-        });
-        
         Route::get('/profile', function(){
             return view('dashboard.profile');
         });
