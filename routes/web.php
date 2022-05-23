@@ -84,5 +84,5 @@ Route::group([
             return view('dashboard.contact');
         });
 
-        Route::resource('posts', PostController::class);
+        Route::resource('/experience', ExperienceController::class);
 });

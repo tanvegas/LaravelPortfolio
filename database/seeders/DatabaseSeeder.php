@@ -29,5 +29,14 @@ class DatabaseSeeder extends Seeder
         // $this->call([
         //     PostTableSeeder::class,
         // ]);
+        $faker = Faker::create();
+        foreach(range(1,2) as $index){
+            DB::table('experiences')->insert([
+                'date' => $faker->date,
+                'position' => $faker->jobTitle,
+                'address' => $faker->address,
+                'desc' => $faker->sentence(5),
+            ]);
+        }
     }
 }
