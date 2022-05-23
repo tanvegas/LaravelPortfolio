@@ -162,3 +162,6 @@ External commands
    credential-helper-selector
    flow
    lfs
+
+
+git push -u -f origin master

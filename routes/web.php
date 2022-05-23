@@ -83,4 +83,6 @@ Route::group([
         Route::get('/contact', function(){
             return view('dashboard.contact');
         });
+
+        Route::resource('posts', PostController::class);
 });
